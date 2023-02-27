@@ -5,10 +5,12 @@ export const searchProducts = async (req, res) => {
     const category = new RegExp(req.query.category, "i");
     const product = new RegExp(req.query.product, "i");
     const brand = new RegExp(req.query.brand, "i");
+    const weight = new RegExp(req.query.weight, "i");
     const products = await productSchema.find({
       Category: category,
       ProductName: product,
       Brand: brand,
+      Quantity: weight,
     });
     res
       .status(200)
